@@ -26,7 +26,7 @@ Sobre o app
 
 Este aplicativo tem como objetivo ajudar você a usar o encurtador de links adfly.
 - Vocês acessam o site para conseguir o link? Não, nós usamos a url e com essa url achamos os dados para acessar o link-destino.
-- Vocês são do AdFly? Não nós somos pessoas fora do grupo do AdFly.
+- Vocês são do AdFly? Não, nós somos pessoas fora do grupo do AdFly.
 - Este App contém vírus? Não, nós somos totalmente confiáveis, nosso app é feito em Python, C++ e Batch (Sendo python o arquivo MAIN.).
 
 Instalação
