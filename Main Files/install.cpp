@@ -1,52 +1,17 @@
-#include <fstream>
 #include <iostream>
+#include <windows.h>
 
 using namespace std;
 
-int main(){
-    ofstream mymainfile ("main.py");
-    ofstream myinstallfile ("install.cmd");
-    char aspas = '"'; 
-    char barras = '//';
-
-
-    if (mymainfile.is_open())
-  {
-        mymainfile << "\nfrom requests import status_codes, get\nfrom time import ctime, sleep\nfrom getpass import getuser\nfrom os import system, environ\nimport platform\n";
-        mymainfile << "username = getuser()\nmachine = environ['COMPUTERNAME']\nhoras = ctime().split()\nmy_os = ''\nmy_url = ''\n";
-        mymainfile << "if platform.system() == 'Windows':\n    my_os = f'cls'\nelif platform.system() == 'Linux':\n    my_os = 'clear'\nelif platform.system() == 'Darwin':\n    my_os = 'clear'\n    system('clear')\n    print('SISTEMA NÃO SUPORTADO PELO APLICATIVO!!')\n    exit\n" ;
-        mymainfile << "print('Digite o Link: ')\nlink = str(input(f'\033[1;31;44m{username}@{machine}\033[1;0;97m:~/\033[1;36m(Root)\033[1;97m $> \033[m '))\nnum_int = int(link.find('dest=')) + 5\nlink_int = int(len(link))\nonly_skip = link[num_int:link_int]\nonly_skip.replace('%2F', '/')\nurl_cl = only_skip.replace('%3A', ':').replace('%2F','/')\n" ;
-        mymainfile << "def init_site(linque):\n    if platform.system() == 'Windows':\n        my_url = f'start {linque}'\n    elif platform.system() == 'Linux':\n        my_url = f'wget "<<aspas<<"{linque}"<<aspas<< "'\n" ;
-        mymainfile << "if get(url_cl).status_code == 200:\n    print('O servidor esta disponivel.')\n    sleep(0.5)\n    print('Iniciando Download!')\n    barra = '\\\\'\n    system(my_os)\n    print('\033[1;34mBaixando . /\033[m')\n    sleep(0.3)\n    system(my_os)\n    print('\033[1;34mBaixando .. -\033[m')\n    sleep(0.3)\n    system(my_os)\n    print(f'\033[1;34mBaixando ...  {barra}\033[m')\n    sleep(0.3)\n    system(my_os)\n    sleep(0.3)\n    print('\033[1;34mBaixando . /\033[m')\n    sleep(0.3)\n    system(my_os)\n    print('\033[1;34mBaixando .. -\033[m')\n    sleep(0.3)\n    system(my_os)\n    print(f'\033[1;34mBaixando ... {barra}\033[m')\n    sleep(0.5)\n    system(my_os)\n    print('Arquivo baixado com sucesso!!')\n    sleep(0.5)\n    system(my_os)\n    init_site(url_cl)\n" ;
-        mymainfile << "else:\n    print('O servidor está indisponivel.')\n    print('',end='')\nprint('O arquivo foi deletado do site!!')\n" ;
-        mymainfile.close();
-        cout << "Arquivo 1 foi baixado! 1/2";
-  }
-    else cout << "Unable to open file";
-    
-
-    if (myinstallfile.is_open())
-  {
-        myinstallfile << "@echo off\n" ; 
-        myinstallfile << "PowerShell -Command "<<aspas<<"Invoke-WebRequest https:"<<barras<<barras<<"www.python.org/ftp/python/3.9.0/python-3.9.0b4-embed-amd64.zip -OutFile c:\\python.zip"<<aspas<<"\n" ; 
-        myinstallfile << "PowerShell -Command "<<aspas<<"Invoke-WebRequest https:"<<barras<<barras<<"www.7-zip.org/a/7z2107-x64.exe -OutFile c:\\Users\\$env:UserName\\7zip.exe"<<aspas<<"\n" ; 
-        myinstallfile << "PowerShell -Command "<<aspas<<"Invoke-WebRequest https:"<<barras<<barras<<"bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\get-pip.py"<<aspas<<"\n" ; 
-        myinstallfile << "start %userprofile%\\7zip.exe /S\n" ; 
-        myinstallfile << aspas<<"C:\\Program Files\\7-Zip\\7z.exe" <<aspas<< " e c:\\python.zip -oC:\\python\n" ; 
-        myinstallfile << "C:\\python\\python.exe %userprofile%\\get-pip.py\n" ;
-        myinstallfile << "timeout /T 10 /NOBREAK\n" ;
-        myinstallfile << "pip install getpass3 --quiet\n" ;
-        myinstallfile << "pip install requests --quiet\n" ;
-        myinstallfile << "timeout /T 5\n" ;
-        myinstallfile << "C:\\python\\python.exe main.py" ;
-        myinstallfile.close();
-        cout << "\nArquivo 2 foi baixado! 2/2";
-  }
-    else cout << "Unable to open file";
-    system("start install.cmd");
-    
-    return 0;
+int main () {
+        FreeConsole();
+        system("mkdir %userprofile%\\Desktop\\AdFlySkipperZip");
+        system("PowerShell -Command 'Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\main.py'");
+        system("PowerShell -Command 'Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\install.cmd'");
+        system("PowerShell -Command 'Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile c:\\Users\\$env:UserName\\Desktop\\AdFlySkipperZip\\start_adfs.cmd'");
+        return 0;
 }
+
 
 /*
 
